@@ -1,0 +1,10 @@
+<app-son [nombre]="mensaje" (salida)="recibirMensaje($event)" ></app-son>
+<!-- <div *ngFor="let mensaje of mensajesHijo">
+    <p >{{ mensaje }}</p>    
+</div> -->
+<div *ngIf="mensajesHijo.length != 0">
+    <h2>Logs Mensajes del Hijo</h2>
+    <br>
+    <p *ngFor="let mensaje of mensajesHijo">{{ mensaje }}</p>    
+</div>
+
