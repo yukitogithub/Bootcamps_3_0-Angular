@@ -1,0 +1,15 @@
+<form [formGroup]="postForm" (ngSubmit)="onSubmit()" >
+    <label for="title">Title: </label>
+    <input type="text" id="title" name="title" formControlName="title"/>
+    <div *ngIf="postForm.controls['title']?.invalid && postForm.controls['title']?.touched">
+        <small>Title is required</small>
+    </div>
+
+    <label for="description">Description: </label>
+    <textarea id="description" name="description" formControlName="description" required></textarea>
+    <div *ngIf="postForm.controls['description']?.invalid && postForm.controls['description']?.touched">
+        <small>Description is required</small>
+    </div>
+
+    <button type="submit" [disabled]="postForm.invalid" >Submit</button>
+</form>
