@@ -16,6 +16,7 @@ export class AuthService {
       .pipe(
         tap((response: any) => {
           localStorage.setItem('authToken', response.token);
+          localStorage.setItem('roles', response.roles);
         })
         ,
         catchError(error => {
@@ -35,5 +36,11 @@ export class AuthService {
 
   isLoggedIn(){
     return !!this.getToken();
+  }
+
+  getRoles() {
+    var roles = localStorage.getItem('roles');
+    console.log(roles);
+    return roles || "";
   }
 }
